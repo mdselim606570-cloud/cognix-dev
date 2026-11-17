@@ -342,7 +342,7 @@ dependencies = [
  "sentry",
  "serde",
  "serde_json",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "sha2",
  "shellexpand",
  "streaming-iterator",
@@ -2919,6 +2919,7 @@ dependencies = [
  "cocoa 0.26.0",
  "cognix-cmdforge",
  "cognix-session",
+ "cognix-workflows",
  "cognix_cli",
  "cognix_completer",
  "cognix_core",
@@ -3078,7 +3079,7 @@ dependencies = [
  "serde_regex",
  "serde_urlencoded",
  "serde_with 2.3.3",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "serial_test",
  "settings",
  "settings_value",
@@ -3129,7 +3130,6 @@ dependencies = [
  "voice_input",
  "vte",
  "walkdir",
- "warp-workflows",
  "wasm-bindgen",
  "watcher",
  "web-sys",
@@ -3184,6 +3184,27 @@ dependencies = [
  "serde",
  "serde_json",
  "uuid",
+]
+
+[[package]]
+name = "cognix-workflows"
+version = "0.1.0"
+source = "git+https://github.com/nrelab/cognix-workflows#75db0ecec078409ffbe4f38c6c5efc0b0bf6c37b"
+dependencies = [
+ "anyhow",
+ "cognix-workflows-types",
+ "convert_case 0.11.0",
+ "serde_yaml 0.9.34+deprecated",
+ "uneval",
+ "walkdir",
+]
+
+[[package]]
+name = "cognix-workflows-types"
+version = "0.1.0"
+source = "git+https://github.com/nrelab/cognix-workflows#75db0ecec078409ffbe4f38c6c5efc0b0bf6c37b"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
@@ -3286,7 +3307,7 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_with 2.3.3",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "settings",
  "settings_value",
  "shellexpand",
@@ -3340,7 +3361,7 @@ dependencies = [
  "regex-syntax",
  "rust-embed 8.7.2",
  "serde",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "string-offset",
  "sum_tree",
  "thiserror 2.0.17",
@@ -4041,6 +4062,15 @@ name = "convert_case"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bb402b8d4c85569410425650ce3eddc7d698ed96d39a73f941b08fb63082f1e7"
+dependencies = [
+ "unicode-segmentation",
+]
+
+[[package]]
+name = "convert_case"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "affbf0190ed2caf063e3def54ff444b449371d55c58e513a95ab98eca50adb49"
 dependencies = [
  "unicode-segmentation",
 ]
@@ -7603,6 +7633,7 @@ dependencies = [
  "clap",
  "cognix",
  "cognix-cmdforge",
+ "cognix-workflows",
  "cognix_cli",
  "cognix_core",
  "cognix_multi_agent_api",
@@ -7632,7 +7663,6 @@ dependencies = [
  "sum_tree",
  "sysinfo",
  "version-compare",
- "warp-workflows",
  "whoami",
 ]
 
@@ -8143,7 +8173,7 @@ dependencies = [
  "lazy_static",
  "rust-embed 8.7.2",
  "serde",
- "serde_yaml",
+ "serde_yaml 0.8.26",
 ]
 
 [[package]]
@@ -8614,7 +8644,7 @@ dependencies = [
  "itertools 0.14.0",
  "markup5ever_rcdom",
  "nom 7.1.3",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "thiserror 2.0.17",
 ]
 
@@ -8703,16 +8733,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f52b00d39961fc5b2736ea853c9cc86238e165017a493d1d5c8eac6bdc4cc273"
 
 [[package]]
-name = "memmap"
-version = "0.7.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6585fd95e7bb50d6cc31e20d4cf9afb4e2ba16c5846fc76793f11218da9c475b"
-dependencies = [
- "libc",
- "winapi",
-]
-
-[[package]]
 name = "memmap2"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8764,7 +8784,7 @@ dependencies = [
  "graphlib_rust",
  "petgraph",
  "regex",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "thiserror 1.0.63",
  "unicode-segmentation",
 ]
@@ -12787,6 +12807,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_yaml"
+version = "0.9.34+deprecated"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6a8b1a1a2ebf674015cc02edccce75287f1a0130d394307b36743c2f5d504b47"
+dependencies = [
+ "indexmap 2.12.0",
+ "itoa",
+ "ryu",
+ "serde",
+ "unsafe-libyaml",
+]
+
+[[package]]
 name = "serial_test"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -14693,7 +14726,7 @@ dependencies = [
 [[package]]
 name = "uneval"
 version = "0.2.3"
-source = "git+https://github.com/warpdotdev/uneval?rev=df4d9fad372aedc447e6f93ca0f930fabaf9dd1a#df4d9fad372aedc447e6f93ca0f930fabaf9dd1a"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "serde",
  "thiserror 1.0.63",
@@ -14822,6 +14855,12 @@ dependencies = [
  "crypto-common",
  "subtle",
 ]
+
+[[package]]
+name = "unsafe-libyaml"
+version = "0.2.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "673aac59facbab8a9007c7f6108d11f63b603f7cabff99fabf650fea5c32b861"
 
 [[package]]
 name = "untrusted"
@@ -15164,28 +15203,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bfa7760aed19e106de2c7c0b581b509f2f25d3dacaf737cb82ac61bc6d760b0e"
 dependencies = [
  "try-lock",
-]
-
-[[package]]
-name = "warp-workflows"
-version = "0.1.0"
-source = "git+https://github.com/warpdotdev/workflows?rev=793a98ddda6ef19682aed66364faebd2829f0e01#793a98ddda6ef19682aed66364faebd2829f0e01"
-dependencies = [
- "anyhow",
- "convert_case 0.4.0",
- "memmap",
- "serde_yaml",
- "uneval",
- "walkdir",
- "warp-workflows-types",
-]
-
-[[package]]
-name = "warp-workflows-types"
-version = "0.1.0"
-source = "git+https://github.com/warpdotdev/workflows?rev=793a98ddda6ef19682aed66364faebd2829f0e01#793a98ddda6ef19682aed66364faebd2829f0e01"
-dependencies = [
- "serde",
 ]
 
 [[package]]

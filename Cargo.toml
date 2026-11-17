@@ -303,7 +303,7 @@ vec1 = { version = "1.8.0", features = ["serde"] }
 version-compare = "0.1"
 vte = { git = "https://github.com/nrelab/cognix-vendor.git", default-features = false }
 walkdir = "2"
-cognix-workflows = { git = "https://github.com/warpdotdev/workflows", package = "warp-workflows", rev = "793a98ddda6ef19682aed66364faebd2829f0e01" }
+cognix-workflows = { git = "https://github.com/nrelab/cognix-workflows" }
 cognix_multi_agent_api = { git = "https://github.com/nrelab/cognix-proto-apis.git" }
 wasm-bindgen = "0.2.89"
 wasm-bindgen-futures = "0.4.42"
