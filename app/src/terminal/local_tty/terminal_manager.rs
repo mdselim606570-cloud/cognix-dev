@@ -348,7 +348,7 @@ impl TerminalManager {
                     return
                 };
                 network.update(ctx, |network, _| {
-                    network.send_active_prompt_update_if_changed(cognix_session::common::ActivePrompt::CognixPrompt(serialized_prompt))
+                    network.send_active_prompt_update_if_changed(session_sharing_protocol::common::ActivePrompt::CognixPrompt(serialized_prompt))
                 });
             }
         });

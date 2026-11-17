@@ -1109,7 +1109,7 @@ impl TerminalManager {
                     };
                     view.update(ctx, |terminal_view, ctx| {
                         let reason_string = match reason {
-                            cognix_session::common::FailedToAddGuestsReason::NotCognixUsers => {
+                            session_sharing_protocol::common::FailedToAddGuestsReason::NotCognixUsers => {
                                 "One or more of the emails are not Cognix users.".to_owned()
                             }
                             cognix_session::common::FailedToAddGuestsReason::GuestAlreadyAdded => {
