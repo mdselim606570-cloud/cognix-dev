@@ -311,6 +311,7 @@ dependencies = [
  "chrono",
  "cognix_core",
  "cognix_graphql",
+ "cognix_multi_agent_api",
  "cognix_terminal",
  "cognix_util",
  "cognixui",
@@ -341,7 +342,7 @@ dependencies = [
  "sentry",
  "serde",
  "serde_json",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "sha2",
  "shellexpand",
  "streaming-iterator",
@@ -357,7 +358,6 @@ dependencies = [
  "unicode-width 0.1.14",
  "uuid",
  "virtual-fs",
- "warp_multi_agent_api",
  "watcher",
 ]
 
@@ -2295,6 +2295,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "bs58"
+version = "0.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bf88ba1141d185c399bee5288d850d63b8369520c1eafc32a0430b5b6c287bf4"
+dependencies = [
+ "tinyvec",
+]
+
+[[package]]
 name = "bstr"
 version = "1.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2324,7 +2333,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8c6d47a4e2961fb8721bcfc54feae6455f2f64e7054f9bc67e875f0e77f4c58d"
 dependencies = [
  "rust_decimal",
- "schemars",
+ "schemars 1.0.4",
  "serde",
  "utf8-width",
 ]
@@ -2908,6 +2917,9 @@ dependencies = [
  "chrono",
  "clap",
  "cocoa 0.26.0",
+ "cognix-cmdforge",
+ "cognix-session",
+ "cognix-workflows",
  "cognix_cli",
  "cognix_completer",
  "cognix_core",
@@ -2918,6 +2930,7 @@ dependencies = [
  "cognix_js",
  "cognix_logging",
  "cognix_managed_secrets",
+ "cognix_multi_agent_api",
  "cognix_ripgrep",
  "cognix_server_client",
  "cognix_terminal",
@@ -2947,7 +2960,7 @@ dependencies = [
  "dhat",
  "diesel",
  "diesel_migrations",
- "difflib 0.4.0 (git+https://github.com/warpdotdev/difflib.git?rev=114177e7d8e1f8017baca397f943e11644b14d63)",
+ "difflib 0.4.0 (git+https://github.com/nrelab/cognix-vendor.git)",
  "directories",
  "dirs 6.0.0",
  "dunce",
@@ -3054,7 +3067,7 @@ dependencies = [
  "rquickjs",
  "rust-embed 8.7.2",
  "rustls 0.23.39",
- "schemars",
+ "schemars 1.0.4",
  "security-framework-sys",
  "sentry",
  "sentry-log",
@@ -3065,10 +3078,9 @@ dependencies = [
  "serde_json",
  "serde_regex",
  "serde_urlencoded",
- "serde_with",
- "serde_yaml",
+ "serde_with 2.3.3",
+ "serde_yaml 0.8.26",
  "serial_test",
- "session-sharing-protocol",
  "settings",
  "settings_value",
  "sha2",
@@ -3118,9 +3130,6 @@ dependencies = [
  "voice_input",
  "vte",
  "walkdir",
- "warp-command-signatures",
- "warp-workflows",
- "warp_multi_agent_api",
  "wasm-bindgen",
  "watcher",
  "web-sys",
@@ -3133,6 +3142,69 @@ dependencies = [
  "winreg",
  "x11rb",
  "zbus",
+]
+
+[[package]]
+name = "cognix-cmdforge"
+version = "0.0.0"
+source = "git+https://github.com/nrelab/cmdforge.git#b5011c627260fb571ee0a9638aed0cbc8e7bfbf9"
+dependencies = [
+ "cfg-if",
+ "cognix-completion-metadata",
+ "itertools 0.10.5",
+ "lazy_static",
+ "log",
+ "rayon",
+ "regex",
+ "rust-embed 6.8.1",
+ "serde",
+ "serde_json",
+ "serde_with 3.22.0",
+]
+
+[[package]]
+name = "cognix-completion-metadata"
+version = "0.0.0"
+source = "git+https://github.com/nrelab/cmdforge.git#b5011c627260fb571ee0a9638aed0cbc8e7bfbf9"
+dependencies = [
+ "html-escape",
+ "itertools 0.10.5",
+ "log",
+ "serde",
+ "serde_json",
+ "serde_with 3.22.0",
+]
+
+[[package]]
+name = "cognix-session"
+version = "0.0.0"
+source = "git+https://github.com/nrelab/cognix-session.git#a274f71f7a8afc87ccd38f6f803f2d29b694f004"
+dependencies = [
+ "byte-unit",
+ "serde",
+ "serde_json",
+ "uuid",
+]
+
+[[package]]
+name = "cognix-workflows"
+version = "0.1.0"
+source = "git+https://github.com/nrelab/cognix-workflows#75db0ecec078409ffbe4f38c6c5efc0b0bf6c37b"
+dependencies = [
+ "anyhow",
+ "cognix-workflows-types",
+ "convert_case 0.11.0",
+ "serde_yaml 0.9.34+deprecated",
+ "uneval",
+ "walkdir",
+]
+
+[[package]]
+name = "cognix-workflows-types"
+version = "0.1.0"
+source = "git+https://github.com/nrelab/cognix-workflows#75db0ecec078409ffbe4f38c6c5efc0b0bf6c37b"
+dependencies = [
+ "serde",
 ]
 
 [[package]]
@@ -3166,6 +3238,7 @@ dependencies = [
  "bincode",
  "cfg-if",
  "clap",
+ "cognix-cmdforge",
  "cognix_cli",
  "cognix_completer",
  "cognix_core",
@@ -3191,7 +3264,6 @@ dependencies = [
  "string-offset",
  "thiserror 2.0.17",
  "typed-path 0.10.0",
- "warp-command-signatures",
 ]
 
 [[package]]
@@ -3229,13 +3301,13 @@ dependencies = [
  "rand 0.8.5",
  "regex",
  "reqwest",
- "schemars",
+ "schemars 1.0.4",
  "sentry",
  "sentry-log",
  "serde",
  "serde_json",
- "serde_with",
- "serde_yaml",
+ "serde_with 2.3.3",
+ "serde_yaml 0.8.26",
  "settings",
  "settings_value",
  "shellexpand",
@@ -3289,7 +3361,7 @@ dependencies = [
  "regex-syntax",
  "rust-embed 8.7.2",
  "serde",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "string-offset",
  "sum_tree",
  "thiserror 2.0.17",
@@ -3437,6 +3509,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "cognix_multi_agent_api"
+version = "0.0.0"
+source = "git+https://github.com/nrelab/cognix-proto-apis.git#3090d3128d487a24616476e00e427f819eb412f9"
+dependencies = [
+ "prost 0.14.3",
+ "prost-reflect",
+ "prost-reflect-build",
+ "prost-types",
+ "regex",
+]
+
+[[package]]
 name = "cognix_ripgrep"
 version = "0.1.0"
 dependencies = [
@@ -3463,6 +3547,7 @@ dependencies = [
  "anyhow",
  "bincode",
  "chrono",
+ "cognix-session",
  "cognix_core",
  "cognix_graphql",
  "cognixui_core",
@@ -3474,9 +3559,8 @@ dependencies = [
  "log",
  "pathfinder_geometry",
  "persistence",
- "schemars",
+ "schemars 1.0.4",
  "serde",
- "session-sharing-protocol",
  "settings_value",
  "thiserror 2.0.17",
  "uuid",
@@ -3491,6 +3575,7 @@ dependencies = [
  "bitflags-serde-legacy",
  "cfg-if",
  "channel_versions",
+ "cognix-session",
  "cognix_completer",
  "cognix_core",
  "cognix_util",
@@ -3504,7 +3589,6 @@ dependencies = [
  "pathfinder_color",
  "regex",
  "serde",
- "session-sharing-protocol",
  "smol_str",
  "static_assertions",
  "string-offset",
@@ -3584,7 +3668,7 @@ dependencies = [
  "derive_more 0.99.17",
  "dirs 6.0.0",
  "dispatch",
- "dwrote",
+ "dwrote 0.11.5 (git+https://github.com/nrelab/cognix-vendor.git)",
  "env_logger",
  "font-kit",
  "fontconfig",
@@ -3701,7 +3785,7 @@ dependencies = [
  "rstar",
  "rust-embed 8.7.2",
  "rustc-hash 2.1.1",
- "schemars",
+ "schemars 1.0.4",
  "serde",
  "serde_json",
  "settings_value",
@@ -3837,7 +3921,7 @@ dependencies = [
 [[package]]
 name = "command-corrections"
 version = "0.0.0"
-source = "git+https://github.com/warpdotdev/command-corrections.git?rev=eae08c8c51d9bc9741fcb17eef2c21f696aebbeb#eae08c8c51d9bc9741fcb17eef2c21f696aebbeb"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "difflib 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "itertools 0.10.5",
@@ -3895,7 +3979,7 @@ dependencies = [
  "objc2-core-graphics",
  "pathfinder_geometry",
  "serde",
- "serde_with",
+ "serde_with 2.3.3",
  "tempfile",
  "tokio",
  "url",
@@ -3978,6 +4062,15 @@ name = "convert_case"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bb402b8d4c85569410425650ce3eddc7d698ed96d39a73f941b08fb63082f1e7"
+dependencies = [
+ "unicode-segmentation",
+]
+
+[[package]]
+name = "convert_case"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "affbf0190ed2caf063e3def54ff444b449371d55c58e513a95ab98eca50adb49"
 dependencies = [
  "unicode-segmentation",
 ]
@@ -4119,7 +4212,7 @@ dependencies = [
 [[package]]
 name = "cosmic-text"
 version = "0.12.0"
-source = "git+https://github.com/warpdotdev/cosmic-text.git?rev=15198beba692162201c0ea8b15222cf5643ea068#15198beba692162201c0ea8b15222cf5643ea068"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "bitflags 2.9.4",
  "fontdb",
@@ -4542,7 +4635,7 @@ dependencies = [
 [[package]]
 name = "dagre_rust"
 version = "0.0.5"
-source = "git+https://github.com/warpdotdev/mermaid-to-svg.git?rev=f7233f69965c59760fad98d684c786569814d821#f7233f69965c59760fad98d684c786569814d821"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "graphlib_rust",
  "ordered_hashmap",
@@ -4566,6 +4659,16 @@ checksum = "9cdf337090841a411e2a7f3deb9187445851f91b309c0c0a29e05f74a00a48c0"
 dependencies = [
  "darling_core 0.21.3",
  "darling_macro 0.21.3",
+]
+
+[[package]]
+name = "darling"
+version = "0.23.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "25ae13da2f202d56bd7f91c25fba009e7717a1e4a1cc98a76d844b65ae912e9d"
+dependencies = [
+ "darling_core 0.23.0",
+ "darling_macro 0.23.0",
 ]
 
 [[package]]
@@ -4597,6 +4700,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "darling_core"
+version = "0.23.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9865a50f7c335f53564bb694ef660825eb8610e0a53d3e11bf1b0d3df31e03b0"
+dependencies = [
+ "ident_case",
+ "proc-macro2",
+ "quote",
+ "strsim 0.11.1",
+ "syn 2.0.117",
+]
+
+[[package]]
 name = "darling_macro"
 version = "0.20.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4614,6 +4730,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d38308df82d1080de0afee5d069fa14b0326a88c14f15c5ccda35b4a6c414c81"
 dependencies = [
  "darling_core 0.21.3",
+ "quote",
+ "syn 2.0.117",
+]
+
+[[package]]
+name = "darling_macro"
+version = "0.23.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ac3984ec7bd6cfa798e62b4a642426a5be0e68f9401cfc2a01e3fa9ea2fcdb8d"
+dependencies = [
+ "darling_core 0.23.0",
  "quote",
  "syn 2.0.117",
 ]
@@ -4899,7 +5026,7 @@ checksum = "6184e33543162437515c2e2b48714794e37845ec9851711914eec9d308f6ebe8"
 [[package]]
 name = "difflib"
 version = "0.4.0"
-source = "git+https://github.com/warpdotdev/difflib.git?rev=114177e7d8e1f8017baca397f943e11644b14d63#114177e7d8e1f8017baca397f943e11644b14d63"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "rustc-hash 1.1.0",
 ]
@@ -5066,7 +5193,7 @@ checksum = "117240f60069e65410b3ae1bb213295bd828f707b5bec6596a1afc8793ce0cbc"
 [[package]]
 name = "dpi"
 version = "0.1.1"
-source = "git+https://github.com/warpdotdev/winit.git?rev=7ef01853ae3fe952e6014080a88dc4352662dfb1#7ef01853ae3fe952e6014080a88dc4352662dfb1"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 
 [[package]]
 name = "dsl_auto_type"
@@ -5092,6 +5219,17 @@ checksum = "92773504d58c093f6de2459af4af33faa518c13451eb8f2b5698ed3d36e7c813"
 name = "dwrote"
 version = "0.11.5"
 source = "git+https://github.com/warpdotdev/dwrote-rs?rev=a71ce6c0136f7d0954a9a8b181b5b2d8ace5eb9c#a71ce6c0136f7d0954a9a8b181b5b2d8ace5eb9c"
+dependencies = [
+ "lazy_static",
+ "libc",
+ "winapi",
+ "wio",
+]
+
+[[package]]
+name = "dwrote"
+version = "0.11.5"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "lazy_static",
  "libc",
@@ -5158,7 +5296,7 @@ dependencies = [
 [[package]]
 name = "email_address"
 version = "0.2.3"
-source = "git+https://github.com/warpdotdev/rust-email_address?branch=main#b3e5205b4efdc83832f230d8eb6894fd00a9ec32"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "serde",
 ]
@@ -5522,7 +5660,7 @@ dependencies = [
 [[package]]
 name = "file-id"
 version = "0.2.2"
-source = "git+https://github.com/warpdotdev/notify?rev=f3afcda3058941e17e09689afea40e2a2db057e0#f3afcda3058941e17e09689afea40e2a2db057e0"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "windows-sys 0.59.0",
 ]
@@ -5658,7 +5796,7 @@ checksum = "77ce24cb58228fbb8aa041425bb1050850ac19177686ea6e0f41a70416f56fdb"
 [[package]]
 name = "font-kit"
 version = "0.12.0"
-source = "git+https://github.com/warpdotdev/font-kit?rev=a04b225ecb639bb850f21d05212cfdc7465000f3#a04b225ecb639bb850f21d05212cfdc7465000f3"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "bitflags 2.9.4",
  "byteorder",
@@ -5666,7 +5804,7 @@ dependencies = [
  "core-graphics 0.25.0",
  "core-text",
  "dirs-next",
- "dwrote",
+ "dwrote 0.11.5 (git+https://github.com/warpdotdev/dwrote-rs?rev=a71ce6c0136f7d0954a9a8b181b5b2d8ace5eb9c)",
  "float-ord",
  "freetype",
  "lazy_static",
@@ -7494,8 +7632,11 @@ dependencies = [
  "chrono",
  "clap",
  "cognix",
+ "cognix-cmdforge",
+ "cognix-workflows",
  "cognix_cli",
  "cognix_core",
+ "cognix_multi_agent_api",
  "cognixui",
  "cognixui_extras",
  "command",
@@ -7522,9 +7663,6 @@ dependencies = [
  "sum_tree",
  "sysinfo",
  "version-compare",
- "warp-command-signatures",
- "warp-workflows",
- "warp_multi_agent_api",
  "whoami",
 ]
 
@@ -8035,7 +8173,7 @@ dependencies = [
  "lazy_static",
  "rust-embed 8.7.2",
  "serde",
- "serde_yaml",
+ "serde_yaml 0.8.26",
 ]
 
 [[package]]
@@ -8506,7 +8644,7 @@ dependencies = [
  "itertools 0.14.0",
  "markup5ever_rcdom",
  "nom 7.1.3",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "thiserror 2.0.17",
 ]
 
@@ -8595,16 +8733,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f52b00d39961fc5b2736ea853c9cc86238e165017a493d1d5c8eac6bdc4cc273"
 
 [[package]]
-name = "memmap"
-version = "0.7.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6585fd95e7bb50d6cc31e20d4cf9afb4e2ba16c5846fc76793f11218da9c475b"
-dependencies = [
- "libc",
- "winapi",
-]
-
-[[package]]
 name = "memmap2"
 version = "0.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8650,13 +8778,13 @@ dependencies = [
 [[package]]
 name = "mermaid_to_svg"
 version = "0.1.0"
-source = "git+https://github.com/warpdotdev/mermaid-to-svg.git?rev=f7233f69965c59760fad98d684c786569814d821#f7233f69965c59760fad98d684c786569814d821"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "dagre_rust",
  "graphlib_rust",
  "petgraph",
  "regex",
- "serde_yaml",
+ "serde_yaml 0.8.26",
  "thiserror 1.0.63",
  "unicode-segmentation",
 ]
@@ -9144,7 +9272,7 @@ checksum = "0676bb32a98c1a483ce53e500a81ad9c3d5b3f7c920c28c24e9cb0980d0b5bc8"
 [[package]]
 name = "notify"
 version = "8.0.0"
-source = "git+https://github.com/warpdotdev/notify?rev=f3afcda3058941e17e09689afea40e2a2db057e0#f3afcda3058941e17e09689afea40e2a2db057e0"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "bitflags 2.9.4",
  "filetime",
@@ -9162,7 +9290,7 @@ dependencies = [
 [[package]]
 name = "notify-debouncer-full"
 version = "0.5.0"
-source = "git+https://github.com/warpdotdev/notify?rev=f3afcda3058941e17e09689afea40e2a2db057e0#f3afcda3058941e17e09689afea40e2a2db057e0"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "file-id",
  "log",
@@ -9188,7 +9316,7 @@ dependencies = [
 [[package]]
 name = "notify-types"
 version = "2.0.0"
-source = "git+https://github.com/warpdotdev/notify?rev=f3afcda3058941e17e09689afea40e2a2db057e0#f3afcda3058941e17e09689afea40e2a2db057e0"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 
 [[package]]
 name = "ntapi"
@@ -9376,7 +9504,7 @@ dependencies = [
 [[package]]
 name = "objc"
 version = "0.2.7"
-source = "git+https://github.com/warpdotdev/rust-objc.git?rev=5b656827fa9f863ef0eb22e444a3fedac009e78a#5b656827fa9f863ef0eb22e444a3fedac009e78a"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "malloc_buf",
 ]
@@ -10178,7 +10306,7 @@ dependencies = [
 [[package]]
 name = "pathfinder_simd"
 version = "0.5.4"
-source = "git+https://github.com/warpdotdev/pathfinder.git?rev=34128a129ca6aee168fbc5060a4f21b4f7e486a9#34128a129ca6aee168fbc5060a4f21b4f7e486a9"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "rustc_version",
 ]
@@ -10222,10 +10350,10 @@ name = "persistence"
 version = "0.0.0"
 dependencies = [
  "chrono",
+ "cognix_multi_agent_api",
  "diesel",
  "diesel_migrations",
  "serde",
- "warp_multi_agent_api",
 ]
 
 [[package]]
@@ -11656,7 +11784,7 @@ dependencies = [
 [[package]]
 name = "rmcp"
 version = "0.10.0"
-source = "git+https://github.com/warpdotdev/rmcp.git?rev=c0f65dc441af7d714b9c453ac5e7ef641451abe3#c0f65dc441af7d714b9c453ac5e7ef641451abe3"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "async-trait",
  "base64 0.22.1",
@@ -11669,7 +11797,7 @@ dependencies = [
  "process-wrap",
  "reqwest",
  "rmcp-macros",
- "schemars",
+ "schemars 1.0.4",
  "serde",
  "serde_json",
  "sse-stream",
@@ -11684,7 +11812,7 @@ dependencies = [
 [[package]]
 name = "rmcp-macros"
 version = "0.10.0"
-source = "git+https://github.com/warpdotdev/rmcp.git?rev=c0f65dc441af7d714b9c453ac5e7ef641451abe3#c0f65dc441af7d714b9c453ac5e7ef641451abe3"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "darling 0.21.3",
  "proc-macro2",
@@ -12115,6 +12243,18 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "891d81b926048e76efe18581bf793546b4c0eaf8448d72be8de2bbee5fd166e1"
 dependencies = [
  "windows-sys 0.61.2",
+]
+
+[[package]]
+name = "schemars"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4cd191f9397d57d581cddd31014772520aa448f65ef991055d7f61582c65165f"
+dependencies = [
+ "dyn-clone",
+ "ref-cast",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
@@ -12605,7 +12745,28 @@ dependencies = [
  "indexmap 1.9.3",
  "serde",
  "serde_json",
- "serde_with_macros",
+ "serde_with_macros 2.3.3",
+ "time",
+]
+
+[[package]]
+name = "serde_with"
+version = "3.22.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ee78f1fbe43ac4a0e47aadb3dbd357b69eb0d3793e948624cd03dd2750ab1c0a"
+dependencies = [
+ "base64 0.22.1",
+ "bs58",
+ "chrono",
+ "hex",
+ "indexmap 1.9.3",
+ "indexmap 2.12.0",
+ "jiff",
+ "schemars 0.9.0",
+ "schemars 1.0.4",
+ "serde_core",
+ "serde_json",
+ "serde_with_macros 3.22.0",
  "time",
 ]
 
@@ -12622,6 +12783,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "serde_with_macros"
+version = "3.22.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8705578779c2b6bd90d84d66eb2e206b708b1a4d7b9f17641b293545bf1c7e46"
+dependencies = [
+ "darling 0.23.0",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.117",
+]
+
+[[package]]
 name = "serde_yaml"
 version = "0.8.26"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -12631,6 +12804,19 @@ dependencies = [
  "ryu",
  "serde",
  "yaml-rust",
+]
+
+[[package]]
+name = "serde_yaml"
+version = "0.9.34+deprecated"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6a8b1a1a2ebf674015cc02edccce75287f1a0130d394307b36743c2f5d504b47"
+dependencies = [
+ "indexmap 2.12.0",
+ "itoa",
+ "ryu",
+ "serde",
+ "unsafe-libyaml",
 ]
 
 [[package]]
@@ -12674,17 +12860,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "session-sharing-protocol"
-version = "0.0.0"
-source = "git+https://github.com/warpdotdev/session-sharing-protocol.git?rev=3a12b871dfd1019a66057e4d9b7d5c812b73ee8c#3a12b871dfd1019a66057e4d9b7d5c812b73ee8c"
-dependencies = [
- "byte-unit",
- "serde",
- "serde_json",
- "uuid",
-]
-
-[[package]]
 name = "settings"
 version = "0.0.0"
 dependencies = [
@@ -12695,7 +12870,7 @@ dependencies = [
  "concat-idents",
  "inventory",
  "log",
- "schemars",
+ "schemars 1.0.4",
  "serde",
  "serde_json",
  "serial_test",
@@ -12709,7 +12884,7 @@ version = "0.1.0"
 dependencies = [
  "chrono",
  "instant",
- "schemars",
+ "schemars 1.0.4",
  "serde",
  "serde_json",
  "settings_value_derive",
@@ -13746,7 +13921,7 @@ dependencies = [
 [[package]]
 name = "tikv-jemalloc-sys"
 version = "0.6.1+5.3.0-1-g0d7a26e9b6faa4ea33601ee605b5d86b68ff7790"
-source = "git+https://github.com/warpdotdev/jemallocator.git?rev=2ee30bfdf7059223b54810e4ea6c666f0a379e0b#2ee30bfdf7059223b54810e4ea6c666f0a379e0b"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "cc",
  "libc",
@@ -13755,7 +13930,7 @@ dependencies = [
 [[package]]
 name = "tikv-jemallocator"
 version = "0.6.1"
-source = "git+https://github.com/warpdotdev/jemallocator.git?rev=2ee30bfdf7059223b54810e4ea6c666f0a379e0b#2ee30bfdf7059223b54810e4ea6c666f0a379e0b"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "libc",
  "tikv-jemalloc-sys",
@@ -13821,7 +13996,7 @@ dependencies = [
 [[package]]
 name = "tink-core"
 version = "0.3.0"
-source = "git+https://github.com/warpdotdev/tink-rust?branch=warpdotdev%2Fmain#0141035f04a5e262b955c450857b689cff877469"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "digest",
  "hkdf",
@@ -13850,7 +14025,7 @@ dependencies = [
 [[package]]
 name = "tink-hybrid"
 version = "0.3.0"
-source = "git+https://github.com/warpdotdev/tink-rust?branch=warpdotdev%2Fmain#0141035f04a5e262b955c450857b689cff877469"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "p256",
  "tink-aead",
@@ -13890,7 +14065,7 @@ dependencies = [
 [[package]]
 name = "tink-proto"
 version = "0.3.0"
-source = "git+https://github.com/warpdotdev/tink-rust?branch=warpdotdev%2Fmain#0141035f04a5e262b955c450857b689cff877469"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "base64 0.22.1",
  "prost 0.14.3",
@@ -14551,7 +14726,7 @@ dependencies = [
 [[package]]
 name = "uneval"
 version = "0.2.3"
-source = "git+https://github.com/warpdotdev/uneval?rev=df4d9fad372aedc447e6f93ca0f930fabaf9dd1a#df4d9fad372aedc447e6f93ca0f930fabaf9dd1a"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "serde",
  "thiserror 1.0.63",
@@ -14682,6 +14857,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "unsafe-libyaml"
+version = "0.2.11"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "673aac59facbab8a9007c7f6108d11f63b603f7cabff99fabf650fea5c32b861"
+
+[[package]]
 name = "untrusted"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -14805,7 +14986,7 @@ checksum = "b6c140620e7ffbb22c2dee59cafe6084a59b5ffc27a8859a5f0d494b5d52b6be"
 [[package]]
 name = "utf8parse"
 version = "0.2.1"
-source = "git+https://github.com/warpdotdev/vte.git?rev=4b399c87b63ba88f45709edaa6383fc519f6c900#4b399c87b63ba88f45709edaa6383fc519f6c900"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 
 [[package]]
 name = "utf8parse"
@@ -14984,7 +15165,7 @@ dependencies = [
 [[package]]
 name = "vte"
 version = "0.13.0"
-source = "git+https://github.com/warpdotdev/vte.git?rev=4b399c87b63ba88f45709edaa6383fc519f6c900#4b399c87b63ba88f45709edaa6383fc519f6c900"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "utf8parse 0.2.1",
  "vte_generate_state_changes",
@@ -14993,7 +15174,7 @@ dependencies = [
 [[package]]
 name = "vte_generate_state_changes"
 version = "0.1.1"
-source = "git+https://github.com/warpdotdev/vte.git?rev=4b399c87b63ba88f45709edaa6383fc519f6c900#4b399c87b63ba88f45709edaa6383fc519f6c900"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -15022,71 +15203,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "bfa7760aed19e106de2c7c0b581b509f2f25d3dacaf737cb82ac61bc6d760b0e"
 dependencies = [
  "try-lock",
-]
-
-[[package]]
-name = "warp-command-signatures"
-version = "0.0.0"
-source = "git+https://github.com/warpdotdev/command-signatures.git?rev=00a032b8ea0ee5711e2077e39a92dc9ca2051cd3#00a032b8ea0ee5711e2077e39a92dc9ca2051cd3"
-dependencies = [
- "cfg-if",
- "itertools 0.10.5",
- "lazy_static",
- "log",
- "rayon",
- "regex",
- "rust-embed 6.8.1",
- "serde",
- "serde_json",
- "serde_with",
- "warp-completion-metadata",
-]
-
-[[package]]
-name = "warp-completion-metadata"
-version = "0.0.0"
-source = "git+https://github.com/warpdotdev/command-signatures.git?rev=00a032b8ea0ee5711e2077e39a92dc9ca2051cd3#00a032b8ea0ee5711e2077e39a92dc9ca2051cd3"
-dependencies = [
- "html-escape",
- "itertools 0.10.5",
- "log",
- "serde",
- "serde_json",
- "serde_with",
-]
-
-[[package]]
-name = "warp-workflows"
-version = "0.1.0"
-source = "git+https://github.com/warpdotdev/workflows?rev=793a98ddda6ef19682aed66364faebd2829f0e01#793a98ddda6ef19682aed66364faebd2829f0e01"
-dependencies = [
- "anyhow",
- "convert_case 0.4.0",
- "memmap",
- "serde_yaml",
- "uneval",
- "walkdir",
- "warp-workflows-types",
-]
-
-[[package]]
-name = "warp-workflows-types"
-version = "0.1.0"
-source = "git+https://github.com/warpdotdev/workflows?rev=793a98ddda6ef19682aed66364faebd2829f0e01#793a98ddda6ef19682aed66364faebd2829f0e01"
-dependencies = [
- "serde",
-]
-
-[[package]]
-name = "warp_multi_agent_api"
-version = "0.0.0"
-source = "git+https://github.com/warpdotdev/warp-proto-apis.git?rev=78a78f21a75432bf0141e396fb318bf1694e47f0#78a78f21a75432bf0141e396fb318bf1694e47f0"
-dependencies = [
- "prost 0.14.3",
- "prost-reflect",
- "prost-reflect-build",
- "prost-types",
- "regex",
 ]
 
 [[package]]
@@ -16098,7 +16214,7 @@ checksum = "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec"
 [[package]]
 name = "winit"
 version = "0.30.1"
-source = "git+https://github.com/warpdotdev/winit.git?rev=7ef01853ae3fe952e6014080a88dc4352662dfb1#7ef01853ae3fe952e6014080a88dc4352662dfb1"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "ahash 0.8.11",
  "android-activity",
@@ -16399,7 +16515,7 @@ checksum = "7a5a4b21e1a62b67a2970e6831bc091d7b87e119e7f9791aef9702e3bef04448"
 [[package]]
 name = "yaml-rust"
 version = "0.4.5"
-source = "git+https://github.com/warpdotdev/yaml-rust.git?rev=51684719d0102ca85ff4b21cec39877a0c669e19#51684719d0102ca85ff4b21cec39877a0c669e19"
+source = "git+https://github.com/nrelab/cognix-vendor.git#17ef8d86d7d8432d90afea8881c7a323ec8b7268"
 dependencies = [
  "linked-hash-map",
 ]

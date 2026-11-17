@@ -227,7 +227,7 @@ impl Network {
         let session_id = SessionId::new();
         let viewer_id = ParticipantId::new();
         let viewer_firebase_uid = UserUid::new("mock_firebase_uid");
-        let active_prompt = ActivePrompt::WarpPrompt("test cognix prompt".to_owned());
+        let active_prompt = ActivePrompt::CognixPrompt("test cognix prompt".to_owned());
 
         let model = Network {
             heartbeat,
@@ -888,6 +888,7 @@ impl Network {
             server_conversation_token,
             prompt,
             attachments,
+            user_query_b64: None,
         };
         self.send_message_to_server(UpstreamMessage::SendAgentPrompt(request));
     }

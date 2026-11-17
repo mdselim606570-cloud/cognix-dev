@@ -410,7 +410,7 @@ impl BlocklistAIController {
                         .map(|u| u.to_proto_combined())
                         .collect(),
                     tool_usage_metadata: Some(conversation.tool_usage_metadata().into()),
-                    warp_token_usage: conversation
+                    cognix_token_usage: conversation
                         .token_usage()
                         .iter()
                         .filter_map(|u| u.to_proto_cognix_usage())
