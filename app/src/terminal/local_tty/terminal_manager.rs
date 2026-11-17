@@ -1397,6 +1397,7 @@ impl TerminalManager {
                     auto_approve_agent_actions: Some(auto_approve_agent_actions),
                     selected_model: None,
                     long_running_command_agent_interaction_state,
+                    long_running_command_agent_interaction: None,
                     cli_agent_session,
                 };
 

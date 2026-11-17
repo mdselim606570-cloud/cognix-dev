@@ -888,6 +888,7 @@ impl Network {
             server_conversation_token,
             prompt,
             attachments,
+            user_query_b64: None,
         };
         self.send_message_to_server(UpstreamMessage::SendAgentPrompt(request));
     }
