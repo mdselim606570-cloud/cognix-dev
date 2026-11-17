@@ -1080,7 +1080,7 @@ impl TerminalManager {
                     };
                     view.update(ctx, |terminal_view, ctx| {
                         let reason_string = match reason {
-                            session_sharing_protocol::common::FailedToAddGuestsReason::NotWarpUsers => {
+                            session_sharing_protocol::common::FailedToAddGuestsReason::NotCognixUsers => {
                                 "One or more of the emails are not Cognix users.".to_owned()
                             }
                             session_sharing_protocol::common::FailedToAddGuestsReason::GuestAlreadyAdded => {
@@ -1132,7 +1132,7 @@ impl TerminalManager {
     ) {
         let mut model = model.lock();
         match active_prompt {
-            ActivePrompt::WarpPrompt(serialized_prompt_snapshot) => {
+            ActivePrompt::CognixPrompt(serialized_prompt_snapshot) => {
                 match serde_json::from_str::<PromptSnapshot>(serialized_prompt_snapshot) {
                     Ok(prompt_snapshot) => {
                         model.block_list_mut().set_honor_ps1(false);

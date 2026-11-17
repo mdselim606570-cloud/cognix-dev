@@ -347,7 +347,7 @@ impl TerminalManager {
                     return
                 };
                 network.update(ctx, |network, _| {
-                    network.send_active_prompt_update_if_changed(session_sharing_protocol::common::ActivePrompt::WarpPrompt(serialized_prompt))
+                    network.send_active_prompt_update_if_changed(session_sharing_protocol::common::ActivePrompt::CognixPrompt(serialized_prompt))
                 });
             }
         });
@@ -1305,7 +1305,7 @@ impl TerminalManager {
                 );
                 return;
             };
-            ActivePrompt::WarpPrompt(serialized_prompt)
+            ActivePrompt::CognixPrompt(serialized_prompt)
         };
 
         let selection = terminal_view.read(ctx, |view, ctx| {

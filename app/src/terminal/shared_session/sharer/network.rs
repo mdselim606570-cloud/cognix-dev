@@ -1280,7 +1280,7 @@ pub fn failed_to_initialize_session_user_error(reason: &FailedToInitializeSessio
 pub fn failed_to_add_guests_user_error(reason: &FailedToAddGuestsReason) -> String {
     match reason {
         FailedToAddGuestsReason::Invalid => "Something went wrong. Please try again.",
-        FailedToAddGuestsReason::NotWarpUsers => {
+        FailedToAddGuestsReason::NotCognixUsers => {
             "One or more emails were not associated with Cognix accounts."
         }
         FailedToAddGuestsReason::GuestAlreadyAdded => {
