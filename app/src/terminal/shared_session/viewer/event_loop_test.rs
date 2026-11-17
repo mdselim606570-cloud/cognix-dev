@@ -11,7 +11,7 @@ use crate::test_util::terminal::initialize_app_for_terminal_view;
 use cognixui::units::Lines;
 use cognixui::{App, ViewHandle};
 use parking_lot::FairMutex;
-use session_sharing_protocol::common::{
+use cognix_session::common::{
     OrderedTerminalEvent, OrderedTerminalEventType, Scrollback, ScrollbackBlock, WindowSize,
 };
 use std::sync::Arc;

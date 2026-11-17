@@ -4,7 +4,7 @@ mod model_impl;
 use cognix_core::features::FeatureFlag;
 pub use helper::AIBlockModelHelper;
 pub use model_impl::*;
-use session_sharing_protocol::common::ParticipantId;
+use cognix_session::common::ParticipantId;
 
 use crate::ai::{
     agent::{

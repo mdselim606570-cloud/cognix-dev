@@ -4,7 +4,7 @@ use std::rc::Rc;
 use cognix_core::features::FeatureFlag;
 use cognixui::{AppContext, ModelHandle, SingletonEntity, WeakViewHandle};
 use input_classifier::InputType;
-use session_sharing_protocol::common::{
+use cognix_session::common::{
     CLIAgentSessionState, InputMode, InputType as ProtocolInputType, SelectedAgentModel,
     SelectedConversation, ServerConversationToken, UniversalDeveloperInputContextUpdate,
 };

@@ -10,7 +10,7 @@
 #   ./script/install_channel_config          # install if not already at pinned rev
 #   ./script/install_channel_config --force  # force reinstall
 
-REPO="ssh://git@github.com/nrelab/cognix-channel-config.git"
+REPO="https://github.com/nrelab/cognix-channel-config.git"
 REVISION="9d937444ee8aceed31c16d4ff04a1f92ea7fdd4f"
 BIN_NAME="cognix-channel-config"
 

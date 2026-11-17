@@ -6,7 +6,7 @@ use crate::terminal::view::{TerminalAction, TerminalView};
 use crate::ui_components::icons::Icon;
 
 use cognixui::{elements::MouseStateHandle, ViewContext, ViewHandle};
-use session_sharing_protocol::common::{Role, WindowSize};
+use cognix_session::common::{Role, WindowSize};
 
 use super::adapter::Participant;
 

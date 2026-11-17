@@ -1,7 +1,7 @@
 use async_channel::Sender;
 use async_io::Timer;
 use instant::Instant;
-use session_sharing_protocol::viewer::UpstreamMessage;
+use cognix_session::viewer::UpstreamMessage;
 use std::{sync::Arc, time::Duration};
 
 use parking_lot::FairMutex;

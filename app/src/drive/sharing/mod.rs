@@ -7,7 +7,7 @@ use cognixui::{
     ui_components::components::{UiComponent, UiComponentStyles},
     AppContext, SingletonEntity, WeakViewHandle,
 };
-use session_sharing_protocol::common::SessionId;
+use cognix_session::common::SessionId;
 
 use crate::{
     ai::{agent::conversation::AIConversationId, blocklist::BlocklistAIHistoryModel},

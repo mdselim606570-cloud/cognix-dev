@@ -43,6 +43,7 @@ mod ffi {
 #[cfg(target_family = "wasm")]
 pub fn emit_event(event: CognixEvent) {
     use js_sys::ReferenceError;
+    use wasm_bindgen::JsCast;
 
     let serialized =
         serde_wasm_bindgen::to_value(&event).expect("Event must convert to JavaScript");

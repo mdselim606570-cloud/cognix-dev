@@ -2,7 +2,7 @@ use std::rc::Rc;
 
 use cognix_core::settings::Setting as _;
 use cognixui::{App, AppContext, SingletonEntity, ViewContext};
-use session_sharing_protocol::sharer::SessionSourceType;
+use cognix_session::sharer::SessionSourceType;
 
 use crate::{
     ai::{

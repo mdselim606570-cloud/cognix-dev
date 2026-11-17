@@ -64,7 +64,7 @@ use crate::terminal::model::secrets::ObfuscateSecrets;
 use cognix_core::report_error;
 #[cfg(not(target_family = "wasm"))]
 use cognixui::util::save_as_file;
-use session_sharing_protocol::sharer::SessionSourceType;
+use cognix_session::sharer::SessionSourceType;
 
 use async_channel::Sender;
 use base64::Engine;
@@ -80,7 +80,7 @@ use hex::FromHexError;
 use instant::Instant;
 use itertools::{Either, Itertools};
 use serde::Serialize;
-use session_sharing_protocol::common::{
+use cognix_session::common::{
     AICommandMetadata, OrderedTerminalEventType, ParticipantId,
 };
 use std::cmp::{max, min};
@@ -1985,7 +1985,7 @@ impl TerminalModel {
             let num_cols = size_update.new_size.columns();
             if let Some(tx) = &self.ordered_terminal_events_for_shared_session_tx {
                 if let Err(e) = tx.try_send(OrderedTerminalEventType::Resize {
-                    window_size: session_sharing_protocol::common::WindowSize {
+                    window_size: cognix_session::common::WindowSize {
                         num_rows,
                         num_cols,
                     },

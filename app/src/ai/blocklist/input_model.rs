@@ -14,7 +14,7 @@ use input_classifier::util::{is_agent_follow_up_input, is_one_off_natural_langua
 use instant::Instant;
 use parking_lot::FairMutex;
 use serde::{Deserialize, Serialize};
-use session_sharing_protocol::common::{InputMode, InputType as ProtocolInputType};
+use cognix_session::common::{InputMode, InputType as ProtocolInputType};
 use settings::Setting as _;
 
 pub use input_classifier::InputType;

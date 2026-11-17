@@ -53,7 +53,7 @@ use crate::TelemetryEvent;
 use derivative::Derivative;
 use markdown_parser::{parse_markdown, FormattedTable, FormattedText, FormattedTextInline};
 use serde::{Deserialize, Serialize};
-use session_sharing_protocol::common::ParticipantId;
+use cognix_session::common::ParticipantId;
 
 use super::llms::LLMId;
 

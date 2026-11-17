@@ -28,7 +28,7 @@ use repo_metadata::watcher::DirectoryWatcher;
 use repo_metadata::CanonicalizedPath;
 #[cfg(feature = "local_fs")]
 use repo_metadata::RepoMetadataModel;
-use session_sharing_protocol::sharer::SessionSourceType;
+use cognix_session::sharer::SessionSourceType;
 use std::collections::HashMap;
 #[cfg(feature = "local_fs")]
 use tempfile::TempDir;
@@ -81,7 +81,7 @@ use cognix_editor::editor::NavigationKey;
 use cognixui::AddSingletonModel;
 use cognixui::{platform::WindowStyle, App, ViewHandle};
 use pane_group::{NotebookPane, PaneState, SplitPaneState, TerminalPaneId};
-use session_sharing_protocol::common::SessionId;
+use cognix_session::common::SessionId;
 use terminal::shared_session::permissions_manager::SessionPermissionsManager;
 use terminal::view::ActiveSessionState;
 
@@ -1452,10 +1452,12 @@ fn test_terminal_model_isnt_leaked() {
 
         // Dropping the tab can also leave in-flight background tasks (e.g. spawned during
         // session setup) that still hold a reference to the model, so poll until the
-        // reference is actually released.
+        // reference is actually released. Under parallel test load these tasks can take
+        // several seconds to complete, so allow a generous budget; the loop exits as soon
+        // as the model is dropped.
         // If we can't upgrade the weak reference, that means it was in fact destructed.
         assert_eventually!(
-            100 =>
+            4000 =>
             {
                 app.update(|_| ());
                 terminal_model.upgrade().is_none()

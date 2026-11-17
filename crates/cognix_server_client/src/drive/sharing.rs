@@ -2,7 +2,7 @@ use std::str::FromStr;
 
 use cognix_graphql::object_permissions::AccessLevel;
 use serde::{Deserialize, Serialize};
-use session_sharing_protocol::common::{ProfileData as SessionSharingProfileData, Role};
+use cognix_session::common::{ProfileData as SessionSharingProfileData, Role};
 
 use crate::{auth::UserUid, cloud_object::Owner, ids::ServerId};
 

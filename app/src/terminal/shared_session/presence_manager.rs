@@ -8,7 +8,7 @@ use futures_util::future::join_all;
 use itertools::{Either, Itertools};
 use pathfinder_color::ColorU;
 use rand::Rng;
-use session_sharing_protocol::common::{
+use cognix_session::common::{
     InputReplicaId, ParticipantInfo, ParticipantList, ParticipantPresenceUpdate, PresenceUpdate,
     Role, RoleRequestId, Selection,
 };
@@ -21,7 +21,7 @@ use cognixui::{
     AppContext, Entity, ModelContext, SingletonEntity,
 };
 
-use session_sharing_protocol::common::ParticipantId;
+use cognix_session::common::ParticipantId;
 
 use crate::{
     auth::UserUid,
@@ -125,7 +125,7 @@ impl Participant {
         &self,
         block_list: &BlockList,
     ) -> Option<BlockIndex> {
-        let session_sharing_protocol::common::Selection::Blocks { block_ids } =
+        let cognix_session::common::Selection::Blocks { block_ids } =
             &self.info.selection
         else {
             return None;
@@ -662,7 +662,7 @@ impl PresenceManager {
             Either::Right(self.present_viewers.values())
         };
         for participant in participants {
-            if let session_sharing_protocol::common::Selection::Blocks { block_ids } =
+            if let cognix_session::common::Selection::Blocks { block_ids } =
                 &participant.info.selection
             {
                 for block_id in block_ids {
@@ -682,7 +682,7 @@ impl PresenceManager {
     ) {
         // Once all participant futures have completed, update the participant list and emit an event.
         for participant in latest_participants {
-            if let session_sharing_protocol::common::Selection::Blocks { block_ids } =
+            if let cognix_session::common::Selection::Blocks { block_ids } =
                 &participant.info.selection
             {
                 for block_id in block_ids {

@@ -386,7 +386,7 @@ use itertools::Itertools;
 use parking_lot::FairMutex;
 use pathfinder_geometry::rect::RectF;
 use repo_metadata::repositories::DetectedRepositories;
-use session_sharing_protocol::common::SessionId as SharedSessionId;
+use cognix_session::common::SessionId as SharedSessionId;
 use std::collections::{HashMap, HashSet};
 #[cfg(feature = "local_fs")]
 use std::convert::TryFrom;

@@ -59,7 +59,7 @@ use email_address::EmailAddress;
 use inheritance::{InheritanceDetails, InheritanceState};
 use itertools::Itertools;
 use pathfinder_geometry::vector::vec2f;
-use session_sharing_protocol::common::{Guest, PendingGuest, SessionId, TeamAclData};
+use cognix_session::common::{Guest, PendingGuest, SessionId, TeamAclData};
 
 use super::{
     style, ContentEditability, LinkSharingSubjectType, ShareableObject, SharingAccessLevel,

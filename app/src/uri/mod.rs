@@ -31,7 +31,7 @@ use anyhow::{anyhow, ensure, Result};
 use cognixui::notification::UserNotification;
 use cognixui::{platform::TerminationMode, SingletonEntity as _, TypedActionView};
 use itertools::Itertools;
-use session_sharing_protocol::common::SessionId;
+use cognix_session::common::SessionId;
 use std::collections::HashMap;
 use std::path::PathBuf;
 use std::str::FromStr;

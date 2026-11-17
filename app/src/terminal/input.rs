@@ -235,7 +235,7 @@ use lazy_static::lazy_static;
 use ordered_float::Float;
 use regex::Regex;
 use serde_json::json;
-use session_sharing_protocol::common::{AgentAttachment, ParticipantId, ServerConversationToken};
+use cognix_session::common::{AgentAttachment, ParticipantId, ServerConversationToken};
 use settings::{Setting as _, ToggleableSetting};
 use std::{
     any::Any,
@@ -12608,7 +12608,7 @@ impl Input {
     fn upload_files_then_send_prompt(
         task_id: crate::ai::ambient_agents::AmbientAgentTaskId,
         server_conversation_token: Option<
-            session_sharing_protocol::common::ServerConversationToken,
+            cognix_session::common::ServerConversationToken,
         >,
         prompt: String,
         base_attachments: Vec<AgentAttachment>,

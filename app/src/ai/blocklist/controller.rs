@@ -73,7 +73,7 @@ use cognixui::r#async::{SpawnedFutureHandle, Timer};
 use itertools::Itertools;
 use parking_lot::FairMutex;
 use pending_response_streams::PendingResponseStreams;
-use session_sharing_protocol::common::ParticipantId;
+use cognix_session::common::ParticipantId;
 use std::collections::{HashMap, HashSet};
 use std::sync::Arc;
 use std::time::Duration;

@@ -93,7 +93,7 @@ use parking_lot::Mutex;
 use pathfinder_geometry::rect::RectF;
 use pathfinder_geometry::vector::{vec2f, Vector2F};
 use serde::{Deserialize, Serialize};
-use session_sharing_protocol::common::SessionId;
+use cognix_session::common::SessionId;
 use settings::Setting as _;
 use std::path::Path;
 use std::sync::mpsc::SyncSender;

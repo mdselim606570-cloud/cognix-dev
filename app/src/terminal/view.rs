@@ -184,8 +184,8 @@ pub use init::{
 pub use inline_banner::{NotificationsDiscoveryBannerAction, NotificationsErrorBannerAction};
 #[cfg(feature = "local_fs")]
 use repo_metadata::repositories::{DetectedRepositories, RepoDetectionSource};
-use session_sharing_protocol::common::LongRunningCommandAgentInteractionState;
-use session_sharing_protocol::sharer::{RoleUpdateReason, SessionEndedReason, SessionSourceType};
+use cognix_session::common::LongRunningCommandAgentInteractionState;
+use cognix_session::sharer::{RoleUpdateReason, SessionEndedReason, SessionSourceType};
 use ssh_file_upload::{FileUpload, FileUploadEvent};
 use uuid::Uuid;
 
@@ -376,7 +376,7 @@ use pathfinder_color::ColorU;
 use regex::Regex;
 use serde::Serialize;
 use serde_json::json;
-use session_sharing_protocol::common::{
+use cognix_session::common::{
     AgentAttachment, ParticipantId, Role, RoleRequestId, RoleRequestResponse,
     ServerConversationToken as SessionSharingServerConversationToken,
     WindowSize as SessionSharingWindowSize,
@@ -1768,7 +1768,7 @@ pub enum Event {
         source_type: SessionSourceType,
     },
     EstablishedSharedSession {
-        session_id: session_sharing_protocol::common::SessionId,
+        session_id: cognix_session::common::SessionId,
     },
     FailedToShareSession {
         reason: String,

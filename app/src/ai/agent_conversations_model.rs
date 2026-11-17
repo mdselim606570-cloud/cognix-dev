@@ -38,7 +38,7 @@ use futures::stream::AbortHandle;
 use instant::Instant;
 use itertools::Itertools;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
-use session_sharing_protocol::common::SessionId;
+use cognix_session::common::SessionId;
 use std::collections::{HashMap, HashSet};
 use std::time::Duration;
 

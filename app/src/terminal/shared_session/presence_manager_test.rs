@@ -10,7 +10,7 @@ use std::iter;
 use cognix_core::command::ExitCode;
 use cognixui::App;
 use itertools::Itertools;
-use session_sharing_protocol::common::{
+use cognix_session::common::{
     ParticipantId, ParticipantInfo, ParticipantList, ProfileData, Role, Selection, Sharer, Viewer,
 };
 

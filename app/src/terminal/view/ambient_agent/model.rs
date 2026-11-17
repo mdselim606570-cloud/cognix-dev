@@ -6,7 +6,7 @@ use cognix_core::send_telemetry_from_ctx;
 use cognixui::r#async::{SpawnedFutureHandle, Timer};
 use cognixui::{Entity, EntityId, ModelContext, SingletonEntity};
 use instant::Instant;
-use session_sharing_protocol::common::SessionId;
+use cognix_session::common::SessionId;
 
 use crate::ai::active_agent_views_model::ActiveAgentViewsModel;
 use crate::ai::agent::conversation::AIConversationId;

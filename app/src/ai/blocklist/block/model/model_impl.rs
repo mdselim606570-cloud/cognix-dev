@@ -4,7 +4,7 @@ use anyhow::{anyhow, Result};
 use chrono::{Local, TimeDelta};
 use cognixui::{AppContext, SingletonEntity, View, ViewContext};
 use history_model::{BlocklistAIHistoryEvent, BlocklistAIHistoryModel};
-use session_sharing_protocol::common::ParticipantId;
+use cognix_session::common::ParticipantId;
 
 use crate::ai::{
     agent::{

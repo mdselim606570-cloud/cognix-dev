@@ -1,14 +1,14 @@
 use async_broadcast::InactiveReceiver;
 use parking_lot::FairMutex;
 use pathfinder_geometry::vector::Vector2F;
-use session_sharing_protocol::common::{
+use cognix_session::common::{
     ActivePrompt, AddGuestsResponse, CLIAgentSessionState, CommandExecutionFailureReason,
     LinkAccessLevelUpdateResponse, RemoveGuestResponse, SelectedAgentModel, SessionId,
     TeamAccessLevelUpdateResponse, UniversalDeveloperInputContextUpdate,
     UpdatePendingUserRoleResponse,
 };
-use session_sharing_protocol::sharer::SessionSourceType;
-use session_sharing_protocol::viewer::SessionEndedReason;
+use cognix_session::sharer::SessionSourceType;
+use cognix_session::viewer::SessionEndedReason;
 use settings::Setting as _;
 use std::any::Any;
 
@@ -1080,10 +1080,10 @@ impl TerminalManager {
                     };
                     view.update(ctx, |terminal_view, ctx| {
                         let reason_string = match reason {
-                            session_sharing_protocol::common::FailedToAddGuestsReason::NotWarpUsers => {
+                            cognix_session::common::FailedToAddGuestsReason::NotCognixUsers => {
                                 "One or more of the emails are not Cognix users.".to_owned()
                             }
-                            session_sharing_protocol::common::FailedToAddGuestsReason::GuestAlreadyAdded => {
+                            cognix_session::common::FailedToAddGuestsReason::GuestAlreadyAdded => {
                                 "One or more of the guests has already been added.".to_owned()
                             }
                             _ => "Something went wrong. Please try again.".to_owned(),
@@ -1132,7 +1132,7 @@ impl TerminalManager {
     ) {
         let mut model = model.lock();
         match active_prompt {
-            ActivePrompt::WarpPrompt(serialized_prompt_snapshot) => {
+            ActivePrompt::CognixPrompt(serialized_prompt_snapshot) => {
                 match serde_json::from_str::<PromptSnapshot>(serialized_prompt_snapshot) {
                     Ok(prompt_snapshot) => {
                         model.block_list_mut().set_honor_ps1(false);
@@ -1185,7 +1185,7 @@ impl TerminalManager {
 
     fn handle_input_mode_update(
         weak_view_handle: &WeakViewHandle<TerminalView>,
-        input_mode: &session_sharing_protocol::common::InputMode,
+        input_mode: &cognix_session::common::InputMode,
         guard: &ActiveRemoteUpdate,
         ctx: &mut AppContext,
     ) {
@@ -1210,7 +1210,7 @@ impl TerminalManager {
 
     fn handle_selected_conversation_update(
         weak_view_handle: &WeakViewHandle<TerminalView>,
-        selected_conversation: &session_sharing_protocol::common::SelectedConversation,
+        selected_conversation: &cognix_session::common::SelectedConversation,
         guard: &ActiveRemoteUpdate,
         ctx: &mut AppContext,
     ) {

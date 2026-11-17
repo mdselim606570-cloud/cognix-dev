@@ -20,8 +20,8 @@ use cognix_core::features::FeatureFlag;
 use cognixui::{elements::MouseStateHandle, ModelHandle, ViewContext, ViewHandle};
 use cognixui::{AppContext, Element};
 use markdown_parser::FormattedTextFragment;
-use session_sharing_protocol::common::{ParticipantId, ParticipantList, Role, SessionId};
-use session_sharing_protocol::sharer::SessionSourceType;
+use cognix_session::common::{ParticipantId, ParticipantList, Role, SessionId};
+use cognix_session::sharer::SessionSourceType;
 use std::collections::{HashMap, HashSet};
 use std::time::Duration;
 

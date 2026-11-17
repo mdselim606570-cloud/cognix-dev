@@ -76,14 +76,14 @@ impl From<ServerConversationToken> for String {
 }
 
 // Conversions between AI ServerConversationToken and protocol ServerConversationToken
-impl From<session_sharing_protocol::common::ServerConversationToken> for ServerConversationToken {
-    fn from(token: session_sharing_protocol::common::ServerConversationToken) -> Self {
+impl From<cognix_session::common::ServerConversationToken> for ServerConversationToken {
+    fn from(token: cognix_session::common::ServerConversationToken) -> Self {
         Self(token.to_string())
     }
 }
 
 impl TryFrom<ServerConversationToken>
-    for session_sharing_protocol::common::ServerConversationToken
+    for cognix_session::common::ServerConversationToken
 {
     type Error = uuid::Error;
 

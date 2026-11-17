@@ -54,7 +54,7 @@ use cognixui::{
 };
 use cognixui::{EntityId, ModelHandle, SingletonEntity as _};
 use pathfinder_color::ColorU;
-use session_sharing_protocol::common::{ParticipantId, Selection};
+use cognix_session::common::{ParticipantId, Selection};
 use std::cell::RefCell;
 use std::collections::{HashMap, HashSet};
 use std::mem;

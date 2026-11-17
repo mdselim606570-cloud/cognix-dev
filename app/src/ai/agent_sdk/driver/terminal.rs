@@ -19,8 +19,8 @@ use cognixui::{
     ViewHandle,
 };
 use futures::channel::oneshot;
-use session_sharing_protocol::common::{Role, SessionId};
-use session_sharing_protocol::sharer::SessionSourceType;
+use cognix_session::common::{Role, SessionId};
+use cognix_session::sharer::SessionSourceType;
 
 use crate::terminal::model::session::ExecuteCommandOptions;
 
@@ -83,7 +83,7 @@ pub(crate) enum TerminalDriverEvent {
     SlowBootstrap,
     /// The terminal session has established a shared session.
     EstablishedSharedSession {
-        session_id: session_sharing_protocol::common::SessionId,
+        session_id: cognix_session::common::SessionId,
         join_url: String,
     },
 }

@@ -12,7 +12,7 @@ use crate::terminal::cli_agent_sessions::{CLIAgentInputEntrypoint, CLIAgentSessi
 use crate::terminal::shared_session::{SharedSessionActionSource, SharedSessionScrollbackType};
 use base64::Engine;
 use cognixui::clipboard::{ClipboardContent, ImageData};
-use session_sharing_protocol::sharer::SessionSourceType;
+use cognix_session::sharer::SessionSourceType;
 mod cognixify_footer;
 
 pub use crate::terminal::CLIAgent;

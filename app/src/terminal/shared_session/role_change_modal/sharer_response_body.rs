@@ -18,7 +18,7 @@ use cognixui::{
     },
     AppContext, Element, Entity, SingletonEntity, TypedActionView, View, ViewContext,
 };
-use session_sharing_protocol::common::{ParticipantId, Role, RoleRequestId};
+use cognix_session::common::{ParticipantId, Role, RoleRequestId};
 
 use cognix_core::features::FeatureFlag;
 

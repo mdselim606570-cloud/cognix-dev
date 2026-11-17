@@ -4,7 +4,7 @@
 use std::{str::FromStr, sync::Arc, time::Duration};
 
 use futures::{select, FutureExt, Stream};
-use session_sharing_protocol::common::SessionId;
+use cognix_session::common::SessionId;
 
 use super::AmbientAgentTaskId;
 use super::{AmbientAgentTask, AmbientAgentTaskState};
